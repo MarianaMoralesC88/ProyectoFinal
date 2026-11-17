@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="680.0" prefWidth="980.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.ProyectoFinal.AdminViewController">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="8.0">
+         <children>
+            <Label text="SGA - Aparta-Suites UQ">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUsuario" text="" />
+            <Button fx:id="btnCerrarSesion" mnemonicParsing="false" onAction="#onCerrarSesion" text="Cerrar sesion" />
+         </children>
+      </HBox>
+      <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+         <tabs>
+            <Tab text="Apartamentos">
+               <content>
+                  <VBox spacing="8.0">
+                     <children>
+                        <TableView fx:id="tblApartamentos" prefHeight="220.0">
+                           <columns>
+                              <TableColumn fx:id="clmCodigo" prefWidth="80.0" text="Codigo" />
+                              <TableColumn fx:id="clmNombre" prefWidth="200.0" text="Nombre" />
+                              <TableColumn fx:id="clmDormitorios" prefWidth="100.0" text="Dormitorios" />
+                              <TableColumn fx:id="clmCapacidad" prefWidth="90.0" text="Capacidad" />
+                              <TableColumn fx:id="clmTarifas" prefWidth="300.0" text="Tarifa baja / media / alta" />
+                              <TableColumn fx:id="clmActivo" prefWidth="80.0" text="Activo" />
+                           </columns>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <TextField fx:id="txtCodigo" prefWidth="100.0" promptText="Codigo" />
+                              <TextField fx:id="txtNombre" prefWidth="200.0" promptText="Nombre" />
+                              <TextField fx:id="txtDormitorios" prefWidth="110.0" promptText="Dormitorios" />
+                              <TextField fx:id="txtCapacidad" prefWidth="110.0" promptText="Capacidad" />
+                              <TextField fx:id="txtCaracteristicas" prefWidth="300.0" promptText="Caracteristicas" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label text="Tarifa por persona por noche:" />
+                              <TextField fx:id="txtTarifaBaja" prefWidth="120.0" promptText="Baja" />
+                              <TextField fx:id="txtTarifaMedia" prefWidth="120.0" promptText="Media" />
+                              <TextField fx:id="txtTarifaAlta" prefWidth="120.0" promptText="Alta" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Button fx:id="btnAgregarApartamento" mnemonicParsing="false" onAction="#onAgregarApartamento" text="Agregar" />
+                              <Button fx:id="btnActualizarApartamento" mnemonicParsing="false" onAction="#onActualizarApartamento" text="Actualizar datos" />
+                              <Button fx:id="btnActualizarTarifas" mnemonicParsing="false" onAction="#onActualizarTarifas" text="Actualizar tarifas" />
+                              <Button fx:id="btnEliminarApartamento" mnemonicParsing="false" onAction="#onEliminarApartamento" text="Eliminar" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label text="Bloqueo del apartamento seleccionado:" />
+                              <DatePicker fx:id="dpBloqueoInicio" prefWidth="150.0" promptText="Desde" />
+                              <DatePicker fx:id="dpBloqueoFin" prefWidth="150.0" promptText="Hasta" />
+                              <TextField fx:id="txtMotivoBloqueo" prefWidth="200.0" promptText="Motivo" />
+                              <Button fx:id="btnRegistrarBloqueo" mnemonicParsing="false" onAction="#onRegistrarBloqueo" text="Registrar bloqueo" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Empleados">
+               <content>
+                  <VBox spacing="8.0">
+                     <children>
+                        <TableView fx:id="tblEmpleados" prefHeight="260.0">
+                           <columns>
+                              <TableColumn fx:id="clmEmpDocumento" prefWidth="120.0" text="Documento" />
+                              <TableColumn fx:id="clmEmpNombre" prefWidth="200.0" text="Nombre" />
+                              <TableColumn fx:id="clmEmpTelefono" prefWidth="130.0" text="Telefono" />
+                              <TableColumn fx:id="clmEmpCorreo" prefWidth="230.0" text="Correo" />
+                              <TableColumn fx:id="clmEmpUsuario" prefWidth="130.0" text="Usuario" />
+                              <TableColumn fx:id="clmEmpActivo" prefWidth="80.0" text="Activo" />
+                           </columns>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <TextField fx:id="txtEmpNombre" prefWidth="200.0" promptText="Nombre" />
+                              <TextField fx:id="txtEmpDocumento" prefWidth="140.0" promptText="Documento" />
+                              <TextField fx:id="txtEmpTelefono" prefWidth="140.0" promptText="Telefono" />
+                              <TextField fx:id="txtEmpCorreo" prefWidth="220.0" promptText="Correo" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <TextField fx:id="txtEmpUsuario" prefWidth="160.0" promptText="Usuario" />
+                              <PasswordField fx:id="txtEmpContrasena" prefWidth="160.0" promptText="Contrasena" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Button fx:id="btnContratar" mnemonicParsing="false" onAction="#onContratar" text="Contratar" />
+                              <Button fx:id="btnActualizarEmpleado" mnemonicParsing="false" onAction="#onActualizarEmpleado" text="Actualizar datos" />
+                              <Button fx:id="btnDesvincular" mnemonicParsing="false" onAction="#onDesvincular" text="Desvincular" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Temporadas y politica">
+               <content>
+                  <VBox spacing="8.0">
+                     <children>
+                        <TableView fx:id="tblTemporadas" prefHeight="200.0">
+                           <columns>
+                              <TableColumn fx:id="clmTempTipo" prefWidth="100.0" text="Tipo" />
+                              <TableColumn fx:id="clmTempNombre" prefWidth="300.0" text="Nombre" />
+                              <TableColumn fx:id="clmTempInicio" prefWidth="140.0" text="Inicio" />
+                              <TableColumn fx:id="clmTempFin" prefWidth="140.0" text="Fin" />
+                           </columns>
+                        </TableView>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <ComboBox fx:id="cbxTipoTemporada" prefWidth="130.0" promptText="Tipo" />
+                              <TextField fx:id="txtNombreTemporada" prefWidth="220.0" promptText="Nombre de la temporada" />
+                              <DatePicker fx:id="dpTemporadaInicio" prefWidth="150.0" promptText="Inicio" />
+                              <DatePicker fx:id="dpTemporadaFin" prefWidth="150.0" promptText="Fin" />
+                              <Button fx:id="btnRegistrarTemporada" mnemonicParsing="false" onAction="#onRegistrarTemporada" text="Registrar temporada" />
+                           </children>
+                        </HBox>
+                        <Label text="La temporada baja cubre todas las fechas que no esten en otra temporada." />
+                        <Label text="Politica de cancelacion">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <Label text="Devolucion total con mas de" />
+                              <TextField fx:id="txtDiasTotal" prefWidth="70.0" promptText="Dias" />
+                              <Label text="dias. Retencion parcial desde" />
+                              <TextField fx:id="txtDiasParcial" prefWidth="70.0" promptText="Dias" />
+                              <Label text="dias, del" />
+                              <TextField fx:id="txtPorcentaje" prefWidth="70.0" promptText="%%" />
+                              <Label text="%%. Con menos se retiene el 100 %." />
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnGuardarPolitica" mnemonicParsing="false" onAction="#onGuardarPolitica" text="Guardar politica" />
+                     </children>
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Reportes">
+               <content>
+                  <VBox spacing="8.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="8.0">
+                           <children>
+                              <DatePicker fx:id="dpDesde" prefWidth="150.0" promptText="Desde" />
+                              <DatePicker fx:id="dpHasta" prefWidth="150.0" promptText="Hasta" />
+                              <Button fx:id="btnGenerarReporte" mnemonicParsing="false" onAction="#onGenerarReporte" text="Generar reporte" />
+                           </children>
+                        </HBox>
+                        <TextArea fx:id="txtReporte" editable="false" prefHeight="460.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+   <padding>
+      <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+   </padding>
+</VBox>
